@@ -1,0 +1,43 @@
+package:
+  name: python
+  version: 3.4.2
+
+source:
+  fn: source:Python-3.4.2.tar.xz
+  url: https://www.python.org/ftp/python/3.4.2/Python-3.4.2.tar.xz
+  md5: 36fc7327c02c6f12fa24fc9ba78039e3
+
+build:
+  no_link: bin/python
+
+requirements:
+  build:
+    - bzip2       [unix]
+    - zlib        [unix]
+    - sqlite      [unix]
+    - readline    [unix]
+    - tk          [unix]
+    - openssl     [unix]
+    - xz          [unix]
+    - system      [linux]
+  run:
+    - zlib        [unix]
+    - sqlite      [unix]
+    - readline    [unix]
+    - tk          [unix]
+    - openssl     [unix]
+    - xz          [unix]
+    - system      [linux]
+
+test:
+  commands:
+    - python -V               [unix]
+    - python3 -V              [unix]
+    - 2to3 -h
+    - pydoc -h
+    - python3-config --help   [unix]
+
+about:
+  home: http://www.python.org/
+  license: PSF
+  summary: general purpose programming language
