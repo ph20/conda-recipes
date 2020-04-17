@@ -1,0 +1,36 @@
+package:
+  name: weblib
+  version: 0.1.30
+
+source:
+  url: http://pypi.ph20.org.ua/simple/weblib/weblib-0.1.30.tar.gz
+  sha256: e26cbc66e8c7d6ca81daefbce253bab5c5b8a001fc85c1913f682b27ced3791c
+
+build:
+  number: 0
+  disable_pip: True
+
+requirements:
+  host:
+    - python 3.6
+    - setuptools
+  run:
+    - python 3.6
+    - setuptools
+    - wheel
+    - pytils
+    - six
+    - user_agent
+
+test:
+  imports:
+    - weblib
+
+about:
+  home: https://pip.pypa.io/en/stable/
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Set of tools for web scraping projects
+  doc_url: https://weblib.readthedocs.io/en/latest/
+  dev_url: https://github.com/pypa/pip
