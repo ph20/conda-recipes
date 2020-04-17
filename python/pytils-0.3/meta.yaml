@@ -1,0 +1,38 @@
+package:
+  name: pytils
+  version: "0.3"
+
+source:
+  url: https://pypi.python.org/packages/source/p/pytils/pytils-0.3.tar.gz
+  sha256: 1e85118d095d48928fef1a73e3e1dccdbc07bc931131705976b7dd05b66627fc
+
+build:
+  number: 0
+  disable_pip: True
+
+requirements:
+  build:
+    - python      [linux]
+    - setuptools
+  host:
+    - python 3.6
+    - setuptools
+  run:
+    - python 3.6
+
+test:
+  imports:
+    - pytils
+    - pytils.templatetags
+    - pytils.test
+    - pytils.test.templatetags
+    - pytils.third
+
+about:
+  home: https://github.com/j2a/pytils/
+  license: MIT License
+  license_family: MIT
+  license_file: LICENSE
+  summary: 'Russian-specific string utils'
+  doc_url: https://github.com/j2a/pytils/
+  dev_url: https://github.com/j2a/pytils/
