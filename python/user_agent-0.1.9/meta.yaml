@@ -1,32 +1,33 @@
+{% set name = "user_agent" %}
+{% set version = "0.1.9" %}
+
 package:
-  name: user_agent
-  version: 0.1.9
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
 
 source:
-  url: http://pypi.ph20.org.ua/simple/user_agent/user_agent-0.1.9.tar.gz
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
   sha256: 8f1ad46cc4aef9f99515ea1c74bb8cacc43e23074c335b2ba2db7735ebe9c0d5
 
 build:
-  number: 0
+  number: 1
+  entry_points:
+    - ua = user_agent.cli:script_ua
   disable_pip: True
 
 requirements:
-  build:
-    - python      [linux]
   host:
-    - python 3.6
+    - python
     - setuptools
   run:
-    - python 3.6
-    - setuptools
-    - wheel
+    - python
     - six
 
 test:
-  commands:
-    - ua -h
   imports:
     - user_agent
+  commands:
+    - ua --help
 
 about:
   home: https://github.com/lorien/user_agent
@@ -36,3 +37,7 @@ about:
   summary: User-Agent generator
   doc_url: https://github.com/lorien/user_agent
   dev_url: https://github.com/lorien/user_agent
+
+extra:
+  recipe-maintainers:
+    - https://github.com/ph20/conda-recipes
