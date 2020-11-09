@@ -12,21 +12,17 @@ source:
 build:
   number: 0
   disable_pip: True
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt"
 
 requirements:
-  build:
-    - python
-    - setuptools
   host:
     - python
     - setuptools
-    - defusedxml
+    - six
     - lxml
-    - pip
+    - defusedxml
     - pycurl <7.43.0.2
     - selection
-    - six
     - user_agent
     - weblib >=0.1.28
   run:
