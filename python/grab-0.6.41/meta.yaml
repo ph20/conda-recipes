@@ -1,0 +1,66 @@
+{% set name = "grab" %}
+{% set version = "0.6.41" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 86aeba303179c1ec8779bd28d30d99458dc450747e537f2735965788651364e3
+
+build:
+  number: 0
+  disable_pip: True
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  build:
+    - python
+    - setuptools
+  host:
+    - python
+    - setuptools
+    - defusedxml
+    - lxml
+    - pip
+    - pycurl <7.43.0.2
+    - selection
+    - six
+    - user_agent
+    - weblib >=0.1.28
+  run:
+    - defusedxml
+    - lxml
+    - pycurl <7.43.0.2
+    - python
+    - selection
+    - six
+    - user_agent
+    - weblib >=0.1.28
+
+
+test:
+  imports:
+    - grab
+    - grab.script
+    - grab.spider
+    - grab.spider.cache_backend
+    - grab.spider.network_service
+    - grab.spider.queue_backend
+    - grab.transport
+    - grab.util
+    - pycurl
+
+about:
+  home: "http://grablib.org"
+  license: MIT License
+  license_family: MIT
+  license_file: LICENSE
+  summary: 'Web Scraping Framework'
+  doc_url: http://grablib.org
+  dev_url: https://github.com/lorien/grab
+
+extra:
+  recipe-maintainers:
+    - https://github.com/ph20/conda-recipes
