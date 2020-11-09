@@ -1,30 +1,36 @@
+{% set name = "weblib" %}
+{% set version = "0.1.30" %}
+
 package:
-  name: weblib
-  version: 0.1.30
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
 
 source:
-  url: http://pypi.ph20.org.ua/simple/weblib/weblib-0.1.30.tar.gz
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
   sha256: e26cbc66e8c7d6ca81daefbce253bab5c5b8a001fc85c1913f682b27ced3791c
 
 build:
-  number: 0
+  number: 1
   disable_pip: True
 
 requirements:
   host:
-    - python 3.6
+    - python
     - setuptools
-  run:
-    - python 3.6
-    - setuptools
-    - wheel
-    - pytils
     - six
+    - pytils
+    - user_agent
+  run:
+    - python
+    - setuptools
+    - six
+    - pytils
     - user_agent
 
 test:
   imports:
     - weblib
+    - weblib.export
 
 about:
   home: https://pip.pypa.io/en/stable/
