@@ -1,0 +1,46 @@
+{% set name = "selection" %}
+{% set version = "0.0.14" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: f073f207bab521b09ee4a12bc4607fffcf59e61a64c7979638724da7fbd205ba
+
+build:
+  number: 0
+  disable_pip: True
+#  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - python
+    - setuptools
+    - lxml
+    - pip
+    - six
+    - weblib
+  run:
+    - lxml
+    - python
+    - six
+    - weblib
+
+test:
+  imports:
+    - selection
+
+about:
+  home: https://github.com/lorien/selection
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: API to extract content from HTML & XML documents
+  doc_url: https://github.com/lorien/selection
+  dev_url: https://github.com/lorien/selection
+
+extra:
+  recipe-maintainers:
+    - https://github.com/ph20/conda-recipes
