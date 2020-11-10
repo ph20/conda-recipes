@@ -19,12 +19,11 @@ requirements:
     - python
     - setuptools
     - lxml
-    - pip
     - six
     - weblib
   run:
-    - lxml
     - python
+    - lxml
     - six
     - weblib
 
