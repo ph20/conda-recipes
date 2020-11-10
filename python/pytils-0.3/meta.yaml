@@ -37,3 +37,7 @@ about:
   summary: 'Russian-specific string utils'
   doc_url: https://github.com/j2a/pytils/
   dev_url: https://github.com/j2a/pytils/
+
+extra:
+  recipe-maintainers:
+    - ph20
