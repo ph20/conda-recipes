@@ -1,0 +1,68 @@
+{% set name = "python-nubia" %}
+{% set version = "0.2b2" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: e4903f7dcaabf3a06eeb3877158aadf7dd91d7311005e1734920f61a77c352fd
+
+build:
+  number: 0
+  entry_points:
+    - _nubia_complete = nubia_complete.main:main
+  disable_pip: True
+  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt"
+
+requirements:
+  host:
+    - python
+    - setuptools
+    - dataclasses
+    - jellyfish
+    - prettytable
+    - prompt-toolkit >=2
+    - pygments
+    - pyparsing >=2.2.0
+    - termcolor
+    - wcwidth
+    - nose >=1.0
+    - coverage
+  run:
+    - python
+    - setuptools
+    - dataclasses
+    - jellyfish
+    - prettytable
+    - prompt-toolkit >=2
+    - pygments
+    - pyparsing >=2.2.0
+    - termcolor
+    - wcwidth
+
+test:
+  imports:
+    - nubia
+    - nubia.internal
+    - nubia.internal.commands
+    - nubia.internal.io
+    - nubia.internal.typing
+    - nubia.internal.ui
+    - nubia_complete
+  commands:
+    - _nubia_complete --help
+
+about:
+  home: "https://github.com/facebookincubator/python-nubia"
+  license: BSD
+  license_family: BSD
+  license_file: LICENSE
+  summary: "A framework for building beautiful shells"
+  doc_url: "https://github.com/facebookincubator/python-nubia"
+  dev_url: "https://github.com/facebookincubator/python-nubia"
+
+extra:
+  recipe-maintainers:
+    - ph20
