@@ -40,3 +40,7 @@ about:
   summary: Set of tools for web scraping projects
   doc_url: https://weblib.readthedocs.io/en/latest/
   dev_url: https://github.com/pypa/pip
+
+extra:
+  recipe-maintainers:
+    - ph20
