@@ -14,22 +14,30 @@ conda-build python/user_agent-0.1.9 \
             python/grab-0.6.41 \
             --python=3.6
 ```
+# Build nubia with requirements
+```
+git clone https://github.com/ph20/conda-recipes.git
+cd conda-recipes
+conda-build python/jellyfish-0.7.2  \
+            python/prettytable-1.0.1 \
+            python/python-nubia-0.2b2 
+            --python=3.6
+```
 
 # Create GrabLib conda environment
 ```
-conda create -n grab_env python=3.6 grab
+conda create -n grab_env python=3.6 grab --channel=ph20
 conda activate grab_env
-
-python                                                                                                                                                                                                       ─╯
-Python 3.6.6 |Anaconda, Inc.| (default, Oct  9 2018, 12:34:16) 
-[GCC 7.3.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> from grab import Grab
->>> g = Grab()
->>> g.go('https://github.com')
-<grab.document.Document object at 0x7f7d68cfa268>
->>> quit()
 
 conda deactivate
 conda env remove -n grab_env
+```
+
+# Create nubia conda environment
+```
+conda create -n nubia_env python=3.6 python-nubia --channel=ph20
+conda activate nubia_env
+
+conda deactivate
+conda env remove -n nubia_env
 ```
