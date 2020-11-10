@@ -42,3 +42,7 @@ about:
   home: http://www.python.org/
   license: PSF
   summary: general purpose programming language
+
+extra:
+  recipe-maintainers:
+    - ph20
