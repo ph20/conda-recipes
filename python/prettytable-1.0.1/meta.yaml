@@ -1,0 +1,45 @@
+{% set name = "prettytable" %}
+{% set version = "1.0.1" %}
+
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 6bb7f539903cb031fecb855b615cbcac8cd245ebc6fa51c6e23ab3386db89771
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  host:
+    - pip
+    - python >=3.5
+    - setuptools_scm
+  run:
+    - python >=3.5
+    - setuptools
+    - wcwidth
+  run_constrained:
+    - ptable >=9999
+
+test:
+  imports:
+    - prettytable
+
+about:
+  home: https://github.com/jazzband/prettytable
+  license_file: COPYING
+  license: BSD-3-Clause
+  summary: A simple Python library for easily displaying tabular data in a visually appealing ASCII table format
+
+extra:
+  recipe-maintainers:
+    - anguslees
+    - pmlandwehr
+    - licode
+    - ericpre
