@@ -20,7 +20,7 @@ git clone https://github.com/ph20/conda-recipes.git
 cd conda-recipes
 conda-build python/jellyfish-0.7.2  \
             python/prettytable-1.0.1 \
-            python/python-nubia-0.2b2 
+            python/python-nubia-0.2b5 
             --python=3.6
 ```
 

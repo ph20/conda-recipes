@@ -1,5 +1,5 @@
 {% set name = "python-nubia" %}
-{% set version = "0.2b2" %}
+{% set version = "0.2b5" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: e4903f7dcaabf3a06eeb3877158aadf7dd91d7311005e1734920f61a77c352fd
+  sha256: 051931c7a67bbfef9e30ba5b08fa96b35d699621ac0c0030e069caa2475456bd
 
 build:
   number: 0
@@ -30,6 +30,7 @@ requirements:
     - wcwidth
     - nose >=1.0
     - coverage
+    - typing_inspect
   run:
     - python
     - setuptools
@@ -41,6 +42,7 @@ requirements:
     - pyparsing >=2.2.0
     - termcolor
     - wcwidth
+    - typing_inspect
 
 test:
   imports:
