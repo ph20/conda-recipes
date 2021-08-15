@@ -11,8 +11,9 @@ conda-build python/user_agent-0.1.9 \
             python/pytils-0.3 \
             python/weblib-0.1.30 \
             python/selection-0.0.14 \
+            python/pycurl-7.43.0.1 \
             python/grab-0.6.41 \
-            --python=3.6
+            --python=3.9
 ```
 # Build nubia with requirements
 ```
@@ -41,3 +42,7 @@ conda activate nubia_env
 conda deactivate
 conda env remove -n nubia_env
 ```
+
+# Clearing
+Clear temporary build workspace and packages
+```conda build purge```

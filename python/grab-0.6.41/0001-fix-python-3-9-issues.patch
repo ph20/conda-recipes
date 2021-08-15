@@ -1,0 +1,11 @@
+--- grab/spider/base_service.py	(revision 739dcd35d1c8cf7ec87519a600c695a2eca948f2)
++++ grab/spider/base_service.py	(revision 2639c165168b17466922387d291cdd0d22f56e86)
+@@ -61,7 +61,7 @@
+         self.resume_event.set()
+ 
+     def is_alive(self):
+-        return self.thread.isAlive()
++        return self.thread.is_alive()
+ 
+ 
+ class BaseService(object):
